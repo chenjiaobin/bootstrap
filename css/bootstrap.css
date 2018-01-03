@@ -18,6 +18,29 @@ body{
 	margin-top: 0;
 	margin-bottom: 20px;
 }
+/*用户列表*/
+.page-header{
+	margin-top: 0;
+}
+.page-header h1{
+	margin:0;
+	font-size: 16px;
+}
+.table tbody tr td{
+	vertical-align: middle;
+}
+#form1{
+	border: 1px solid #ddd;
+	border-top: none;
+	padding: 10px;
+}
+/*标签管理*/
+.mar-t10{
+	margin-top: 10px;
+}
+.mar-t10 .alert{
+	margin-right: 10px;
+}
 /*底部*/
 #footer{
 	text-align: center;

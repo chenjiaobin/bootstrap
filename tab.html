@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Bootstrap实战</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+<!-- 顶部导航栏 -->
+<nav class="navbar navbar-default">
+	<div class="container">
+		<!-- 小屏幕按钮导航和按钮 -->
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a href="index.html" class="navbar-brand">bootstrap-admin</a>
+		</div>
+		<!-- 大屏幕时显示的导航 -->
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;后台首页</a></li>
+				<li class="active"><a href="user-list.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+				<li><a href="#html5"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;内容管理</a></li>
+				<li><a href="#cources"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;标签管理</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a href="#" id="admin" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">admin<span class="caret"></span></a>
+					<ul class="dropdown-menu" aria-labelledby="admin">
+                        <li><a href="index.html"><span class="glyphicon glyphicon-screenshot"></span>&nbsp;&nbsp;前台首页</a></li>
+                        <li><a href="index.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;个人主页</a></li>
+                        <li><a href="index.html"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+                        <li><a href="index.html"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;账户中心</a></li>
+                        <li><a href="index.html"><span class="glyphicon glyphicon-heart"></span>&nbsp;&nbsp;我的收藏</a></li>
+                    </ul>
+				</li>
+				<li><a href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+<!-- 主体内容 -->
+<div class="container">
+	<div class="page-header">
+		<h1>TAG标签管理</h1>
+	</div>
+	<form action="">
+		<div class="col-md-10">
+			<input type="text" class="form-control" placeholder="请输入标签" data-bind="value:newTab">
+		</div>
+		<div class="col-md-2">
+			<button class="btn btn-default" data-bind="click:addTab">添加</button>
+		</div>
+	</form>
+	<div class="col-md-12 mar-t10">
+		<div data-bind="foreach:tabs">
+			<div class="alert alert-info alert-dismissible pull-left" role="alert">
+	        	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+	        	<strong data-bind="text:$data"></strong>
+	    	</div>
+		</div>
+	</div>
+</div>
+<!-- 底部	 -->
+<footer>
+	<p id="footer">Copyright © 2012-2015  chenjiaobin.githubio  蜀ICP备13014270号-4</p>
+</footer>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/knockout-3.4.2.js"></script>
+<script>
+	$(document).ready(function(){
+		var viewModel=function(){
+			var self=this;
+			self.newTab=ko.observable('');
+			self.tabs=ko.observableArray([]);
+			// self.local=ko.computed(function(){
+			// 	var arr=window.localStorage.tabList;
+			// 	return arr;
+			// });
+			self.addTab=function(){
+				self.tabs.push(self.newTab());
+				// var arr=window.localStorage.tabList;
+				// if(!arr){
+				// 	var arr=[];
+				// 	arr.push(self.newTab());
+				// }else{
+				// 	arr.push(self.newTab());
+				// }
+				//  window.localStorage.setItem('tabList',self.newTab());
+				return false;
+			}
+		}
+		var currentViewModel=new viewModel();
+		ko.applyBindings(currentViewModel);
+	})
+</script>
+</body>
+</html>
