@@ -1,7 +1,7 @@
 # bootstrap
 这是bootstrap的综合实战，涉及了bootstrap的常用组件以及使用了外部插件，同时也在添加标签页面使用h5的localstorage进行倒动态存储添加的标签
 这个访问[地址](https://chenjiaobin.github.io/bootstrap/index.html)和二维码
-[扫一扫进入网站](https://raw.githubusercontent.com/chenjiaobin/bootstrap/master/img/1515042989.png)
+![扫一扫进入网站](https://raw.githubusercontent.com/chenjiaobin/bootstrap/master/img/1515042989.png)
 # wow和animaate的应用
 首先需要在页面上引入对应的文件animage.css文件和wow.min.js文件,这两个文件是必不可少的，当然还需要jquery.min.js,引入这两个文件后就可以在页面上使用了
 animate.css的方法[参考网址](https://daneden.github.io/animate.css/)这里面有各种过渡方法，直接用，加在你的class上面
