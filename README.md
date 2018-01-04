@@ -1,0 +1,3 @@
+# bootstrap
+这是bootstrap的综合实战，涉及了bootstrap的常用组件以及使用了外部插件，同时也在添加标签页面使用h5的localstorage进行倒动态存储添加的标签
+
