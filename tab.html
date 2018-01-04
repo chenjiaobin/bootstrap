@@ -24,20 +24,20 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="index.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;后台首页</a></li>
-				<li class="active"><a href="user-list.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
-				<li><a href="#html5"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;内容管理</a></li>
-				<li><a href="#cources"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;标签管理</a></li>
+				<li><a href="user-list.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;用户管理</a></li>
+				<li><a href="content.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;内容管理</a></li>
+				<li class="active"><a href="tab.html"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;标签管理</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">
 					<a href="#" id="admin" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">admin<span class="caret"></span></a>
 					<ul class="dropdown-menu" aria-labelledby="admin">
-                        <li><a href="index.html"><span class="glyphicon glyphicon-screenshot"></span>&nbsp;&nbsp;前台首页</a></li>
-                        <li><a href="index.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;个人主页</a></li>
-                        <li><a href="index.html"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
-                        <li><a href="index.html"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;账户中心</a></li>
-                        <li><a href="index.html"><span class="glyphicon glyphicon-heart"></span>&nbsp;&nbsp;我的收藏</a></li>
-                    </ul>
+              <li><a href="index.html"><span class="glyphicon glyphicon-screenshot"></span>&nbsp;&nbsp;前台首页</a></li>
+              <li><a href="index.html"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;个人主页</a></li>
+              <li><a href="index.html"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a></li>
+              <li><a href="index.html"><span class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;账户中心</a></li>
+              <li><a href="index.html"><span class="glyphicon glyphicon-heart"></span>&nbsp;&nbsp;我的收藏</a></li>
+          </ul>
 				</li>
 				<li><a href="#"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a></li>
 			</ul>
@@ -78,21 +78,12 @@
 		var viewModel=function(){
 			var self=this;
 			self.newTab=ko.observable('');
-			self.tabs=ko.observableArray([]);
-			// self.local=ko.computed(function(){
-			// 	var arr=window.localStorage.tabList;
-			// 	return arr;
-			// });
+			// 通过缓存来获取之前的值，这样刷新页面就不会将添加的数据丢失
+			self.tabs=ko.observableArray(JSON.parse(window.localStorage.getItem('tabList')||'[]'));
 			self.addTab=function(){
 				self.tabs.push(self.newTab());
-				// var arr=window.localStorage.tabList;
-				// if(!arr){
-				// 	var arr=[];
-				// 	arr.push(self.newTab());
-				// }else{
-				// 	arr.push(self.newTab());
-				// }
-				//  window.localStorage.setItem('tabList',self.newTab());
+				// 将添加的标签动态添加到localstorage中
+				window.localStorage.setItem('tabList',JSON.stringify(self.tabs()));
 				return false;
 			}
 		}

@@ -41,6 +41,10 @@ body{
 .mar-t10 .alert{
 	margin-right: 10px;
 }
+/*文章发布*/
+.release .tab-content{
+	padding: 20px;
+}
 /*底部*/
 #footer{
 	text-align: center;
