@@ -3,7 +3,7 @@
 这个访问[地址](https://chenjiaobin.github.io/bootstrap/index.html)和二维码
 ![扫一扫进入网站](https://raw.githubusercontent.com/chenjiaobin/bootstrap/master/img/1515042989.png)
 # wow和animaate的应用
-首先需要在页面上引入对应的文件animage.css文件和wow.min.js文件,这两个文件是必不可少的，当然还需要jquery.min.js,引入这两个文件后就可以在页面上使用了
+首先需要在页面上引入对应的文件animate.css文件和wow.min.js文件,这两个文件是必不可少的，当然还需要jquery.min.js,引入这两个文件后就可以在页面上使用了
 animate.css的方法[参考网址](https://daneden.github.io/animate.css/)这里面有各种过渡方法，直接用，加在你的class上面
 ```
 //在外层div上加上wow（必不可少） 和 animate的方法(比如fadeInUp,fadeInDown....)
@@ -23,7 +23,8 @@ new WOW().init();
 ```
 animate插件给使用对象添加`class="wow+animate"(animate是写他的方法，而不是写这个animate)`
 它的其他可用属性有`data-wow-duration='1s' 过渡执行时间`和`data-wow-delay='2s' 延迟设置`和`data-wow-offset='10' 设置偏移量`和`data-wow-iteration="10" 过渡重复次数`
-整体呈现的效果是，当你鼠标滚动的时候，在你有设置的区域会有一个过渡的效果呈现
+整体呈现的效果是，当你鼠标滚动的时候，在你有设置的区域会有一个过渡的效果呈现。
+**注意：**我们一般animate.css都会和wow一起使用，这样滚动到设置了animated的元素时该元素的动画才会被触发，如果单独使用animate的话只要一加载页面就会加载全部动画，当你滚动的时候就不会再出现动画了
 # singlePageNav的应用
 这个插件的主要作用是在当前页面上跳转，就是通过设置锚点跳转以及js初始化就可以呈现点击锚点过渡跳到锚点连接的位置，也可以设置偏移量(一般这个偏移量主要是当你的顶部导航设置成固定的时候就需要用到，偏移的量就是你的顶部导航的高度，这样页面就不会被你的导航覆盖)
 使用的时候需要引入singlePageNav.min.js
